@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171101185900) do
+ActiveRecord::Schema.define(version: 20171107214911) do
 
   create_table "activities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.integer  "user_id"
@@ -113,6 +113,16 @@ ActiveRecord::Schema.define(version: 20171101185900) do
     t.index ["storage_app_id"], name: "index_channel_tokens_on_storage_app_id", using: :btree
     t.index ["storage_id", "level_id"], name: "index_channel_tokens_on_storage_id_and_level_id", unique: true, using: :btree
     t.index ["storage_id"], name: "index_channel_tokens_on_storage_id", using: :btree
+  end
+
+  create_table "circuit_playground_discount_codes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+    t.string   "code",             null: false
+    t.boolean  "partial_discount", null: false
+    t.datetime "expiration",       null: false
+    t.datetime "claimed_at"
+    t.datetime "voided_at"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "cohorts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
