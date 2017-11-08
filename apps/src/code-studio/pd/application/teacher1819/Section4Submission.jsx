@@ -1,0 +1,76 @@
+import React from 'react';
+import ApplicationFormComponent from "../ApplicationFormComponent";
+import {PageLabels, SectionHeaders} from '@cdo/apps/generated/pd/teacher1819ApplicationConstants';
+import {FormGroup, Checkbox} from 'react-bootstrap';
+
+export default class Section4Submission extends ApplicationFormComponent {
+  static labels = PageLabels.section4Submission;
+
+  static associatedFields = [
+    ...Object.keys(PageLabels.section4Submission)
+  ];
+
+  handleAgreeChange = event => {
+    this.handleChange({
+      agree: event.target.checked
+    });
+  };
+
+  render() {
+    return (
+      <FormGroup>
+        <h3>Section 4: {SectionHeaders.section4Submission}</h3>
+
+        <p>
+          Code.org works closely with local Regional Partners to organize and deliver the
+          Professional Learning Program. By enrolling in this workshop, you are agreeing to
+          allow Code.org to share information on how you use Code.org and the Professional
+          Learning resources with your Regional Partner and school district. In order to
+          organize the workshops and support you, our partners need to know who is attending
+          and what content is relevant for them. So, we will share your contact information,
+          which courses/units you are using in your classrooms and aggregate data about your
+          classes. This includes the number of students in your classes, the demographic breakdown
+          of your classroom, and the name of your school and district. We will not share any
+          information about individual students with our Regional Partners - all information will
+          be de-identified and aggregated. Our Regional Partners are contractually obliged to treat
+          this information with the same level of confidentiality as Code.org.
+        </p>
+
+        <FormGroup
+          validationState={this.getValidationState("agree")}
+        >
+          <Checkbox
+            checked={!!this.props.data.agree}
+            onChange={this.handleAgreeChange}
+          >
+            {this.labelFor("agree")}
+          </Checkbox>
+        </FormGroup>
+      </FormGroup>
+    );
+  }
+
+  /**
+   * @override
+   */
+  static getDynamicallyRequiredFields(data) {
+    const requiredFields = [];
+    return requiredFields;
+  }
+
+  /**
+   * @override
+   */
+  static getErrorMessages(data) {
+    const formatErrors = {};
+    return formatErrors;
+  }
+
+  /**
+   * @override
+   */
+  static processPageData(data) {
+    const changes = {};
+    return changes;
+  }
+}

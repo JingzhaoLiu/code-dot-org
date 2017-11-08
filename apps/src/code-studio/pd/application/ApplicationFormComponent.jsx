@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react';
-import FormComponent from '../../form_components/FormComponent';
-import MarkdownSpan from '../../components/markdownSpan';
+import FormComponent from '../form_components/FormComponent';
+import MarkdownSpan from '../components/markdownSpan';
 
 export default class Facilitator1819FormComponent extends FormComponent {
   static propTypes = {

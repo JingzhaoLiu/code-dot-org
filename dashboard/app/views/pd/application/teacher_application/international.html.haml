@@ -1,0 +1,10 @@
+- content_for(:head) do
+  = stylesheet_link_tag 'css/pd', media: 'all'
+
+%p
+  Thank you for your interest in Code.org’s Professional Learning Program.
+  At this time, we are only able to provide this program to teachers in the United States.
+  Please visit our website for additional Code.org
+  = link_to('professional development resources', 'https://code.org/educate')
+  and opportunities to connect with other
+  = link_to('computer science teachers', 'https://code.org/educate/community') + '.'

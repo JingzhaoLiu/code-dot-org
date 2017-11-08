@@ -94,6 +94,7 @@ module Pd::Application
       'Full year'
     ]
 
+
     def self.options
       {
         country: [
@@ -263,6 +264,65 @@ module Pd::Application
           'More than 50 miles'
         ]
       }
+    end
+
+    def self.required_fields
+      %i(
+        country
+        school
+        first_name
+        last_name
+        phone
+        address
+        city
+        state
+        zip_code
+        gender_identity
+        race
+        principal_first_name
+        principal_last_name
+        principal_title
+        principal_email
+        principal_confirm_email
+        principal_phone_number
+        current_role
+        grades_at_school
+        grades_teaching
+        grades_expect_to_teach
+        subjects_teaching
+        subjects_expect_to_teach
+        subjects_licensed_to_teach
+        taught_in_past
+        cs_offered_at_school
+        cs_opportunities_at_school
+
+        program
+        plan_to_teach
+
+        agree
+      )
+    end
+
+    def dynamic_required_fields(hash)
+      [].tap do |required|
+        if hash[:program] == PROGRAMS[:csd]
+          required.concat [
+            :csd_which_grades,
+            :csd_course_hours_per_week,
+            :csd_course_hours_per_year,
+            :csd_terms_per_year
+          ]
+        elsif hash[:program] == PROGRAMS[:csp]
+          required.concat [
+            :csp_which_grades,
+            :csp_course_hours_per_week,
+            :csp_course_hours_per_year,
+            :csp_terms_per_year,
+            :csp_how_offer,
+            :csp_ap_exam
+          ]
+        end
+      end
     end
 
     def program

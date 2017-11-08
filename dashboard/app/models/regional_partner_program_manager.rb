@@ -15,4 +15,6 @@
 class RegionalPartnerProgramManager < ActiveRecord::Base
   belongs_to :program_manager, class_name: 'User'
   belongs_to :regional_partner
+
+  has_many :pd_workshops, class_name: 'Pd::Workshop', foreign_key: :organizer_id
 end

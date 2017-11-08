@@ -33,7 +33,7 @@ class RegionalPartner < ActiveRecord::Base
     class_name: 'User',
     through: :regional_partner_program_managers
 
-  has_many :pd_workshops
+  has_many :pd_workshops, class_name: 'Pd::Workshop', through: :regional_partner_program_managers
   has_many :mappings, -> {order :state, :zip_code}, class_name: Pd::RegionalPartnerMapping, dependent: :destroy
 
   # Make sure the phone number contains at least 10 digits.
@@ -79,6 +79,10 @@ class RegionalPartner < ActiveRecord::Base
         group: row['group'],
       }
       RegionalPartner.where(params).first_or_create!
+    end
+
+    scope all_partner_workshops, -> do
+
     end
   end
 end

@@ -45,7 +45,8 @@ class Ability
       RegionalPartner,
       Pd::RegionalPartnerMapping,
       Pd::Application::ApplicationBase,
-      Pd::Application::Facilitator1819Application
+      Pd::Application::Facilitator1819Application,
+      Pd::Application::Teacher1819Application
     ]
 
     if user.persisted?
@@ -85,6 +86,7 @@ class Ability
         end
         can [:new, :create, :read], Pd::WorkshopMaterialOrder, user_id: user.id
         can [:new, :create, :read], Pd::Application::Facilitator1819Application, user_id: user.id
+        can [:new, :create, :read], Pd::Application::Teacher1819Application, user_id: user.id
       end
 
       if user.facilitator?
@@ -145,6 +147,7 @@ class Ability
         can :manage, Pd::RegionalPartnerMapping
         can :manage, Pd::Application::ApplicationBase
         can :manage, Pd::Application::Facilitator1819Application
+        can :manage, Pd::Application::Teacher1819Application
       end
 
       if user.permission?(UserPermission::PLC_REVIEWER)

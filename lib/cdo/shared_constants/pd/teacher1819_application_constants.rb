@@ -14,6 +14,7 @@ module Teacher1819ApplicationConstants
   PAGE_LABELS = {
     section_1_about_you_and_your_school: {
       country: 'Country',
+      school: 'School',
       title: 'Title',
       first_name: 'First Name',
       preferred_first_name: 'Preferred First Name',
@@ -31,7 +32,7 @@ module Teacher1819ApplicationConstants
       principal_last_name: "Principal's last name",
       principal_title: "Principal's Title",
       principal_email: "Principal's email address",
-      confirm_principal_email: "Confirm principal's email address",
+      principal_confirm_email: "Confirm principal's email address",
       principal_phone_number: "Principal's phone number",
       current_role: 'What is your current role at your school?',
       grades_at_school: 'What grades are served at your school? (Select all that apply)',
